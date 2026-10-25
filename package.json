@@ -1,0 +1,43 @@
+{
+  "name": "trott",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/prepare-local.mjs && concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:client": "vite --port 5173",
+    "dev:server": "tsx watch server/index.ts",
+    "build": "tsc -p tsconfig.server.json && vite build",
+    "build:same-origin": "tsc -p tsconfig.server.json && VITE_PUBLIC_API_ORIGIN= vite build",
+    "preview": "vite preview --port 5173",
+    "docs:install": "cd docs && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt",
+    "docs:build": "cd docs && (test -x .venv/bin/sphinx-build || (python3 -m venv .venv && .venv/bin/pip install -r requirements.txt)) && .venv/bin/sphinx-build -M html . _build",
+    "docs:serve": "cd docs && make serve",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json",
+    "test": "node --test tests/trott.test.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dexie": "^4.4.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rxdb": "^17.2.0",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^9.1.0",
+    "tsx": "^4.19.2",
+    "typescript": "~5.6.3",
+    "vite": "^8.3.5"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

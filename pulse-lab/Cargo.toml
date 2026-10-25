@@ -1,0 +1,12 @@
+[package]
+name = "trott-pulse-contract"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Compile the actual downloaded module, without modifying the research fork.
+[lib]
+path = "../vendor/pulse/pulse.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }

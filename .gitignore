@@ -1,0 +1,39 @@
+node_modules
+dist
+dist-server
+.env
+.env.*
+!.env.example
+data/
+
+# Local / generated
+docs/.venv
+docs/_build
+**/*.bak*
+**/*.bak-*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea
+.vscode
+
+pulse-lab/target/
+public/local-snapshot/
+
+# Private browser saves, credentials, and local machine files
+*.zip
+*.har
+*.mhtml
+*.mht
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*cookies*.json
+*tokens*.json
+__pycache__/
+.codex/
+.agents/

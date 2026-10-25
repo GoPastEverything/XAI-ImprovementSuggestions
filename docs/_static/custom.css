@@ -1,0 +1,8 @@
+/* iFixedX docs — X-blue accents on Furo */
+:root {
+  --ix-accent: #1d9bf0;
+}
+
+.sidebar-brand-text {
+  font-weight: 800;
+}
